@@ -56,3 +56,14 @@
 @import url(./blocks/popup/__submit/_inactive/popup__submit_inactive.css);
 @import url(./blocks/popup/__item/_place/_link/popup__item_place_link.css);
 @import url(./blocks/popup/__item/_place/_name/popup__item_palce_name.css);
+
+@import url(./blocks/popup/__name/_entry/popup__name_entry.css);
+@import url(./blocks/popup/__image/popup__image.css);
+
+@import url(../src/blocks/entry/entry.css);
+@import url(../src/blocks/entry/__form/entry__form.css);
+@import url(../src/blocks/entry/__input/entry__input.css);
+@import url(../src/blocks/entry/__link/entry__link.css);
+@import url(../src/blocks/entry/__sign/entry__sign.css);
+@import url(../src/blocks/entry/__submit/entry__submit.css);
+@import url(../src/blocks/entry/__title/entry__title.css);
