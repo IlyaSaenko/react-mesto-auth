@@ -1,4 +1,5 @@
 import { apiConfig } from "./constants";
+import checkResponse from "./handleResponse";
 
 class Api {
 	constructor(config) {
@@ -15,7 +16,7 @@ class Api {
 				"Content-Type": "application/json",
 			},
 		})
-			.then((res) => this._checkResponse(res));
+		.then(checkResponse)
 	}
 
 	//получить данные пользователя
@@ -25,7 +26,7 @@ class Api {
 			headers: {
 				authorization: this._authorization,
 			},
-		}).then((res) => this._checkResponse(res));
+		}).then(checkResponse)
 	}
 
 	//изменить данные пользователя
@@ -40,7 +41,7 @@ class Api {
 				name: data.name,
 				about: data.about,
 			}),
-		}).then((res) => this._checkResponse(res));
+		}).then(checkResponse)
 	}
 
 	//добавить новую карточку
@@ -55,7 +56,7 @@ class Api {
 				name: data.name,
 				link: data.link,
 			}),
-		}).then((res) => this._checkResponse(res));
+		}).then(checkResponse)
 	}
 
 	//статус лайка карточки
@@ -66,14 +67,15 @@ class Api {
 				headers: {
 					authorization: this._authorization,
 				},
-			}).then((res) => this._checkResponse(res));
+			}).then(checkResponse)
+
 		} else {
 			return fetch(`${this._url}/cards/${dataId}/likes`, {
 				method: "PUT",
 				headers: {
 					authorization: this._authorization,
 				},
-			}).then((res) => this._checkResponse(res));
+			}).then(checkResponse)
 		}
 	}
 
@@ -84,7 +86,7 @@ class Api {
 			headers: {
 				authorization: this._authorization,
 			},
-		}).then((res) => this._checkResponse(res));
+		}).then(checkResponse)
 	}
 
 	//изменить аватар
@@ -98,17 +100,7 @@ class Api {
 			body: JSON.stringify({
 				avatar: data.avatar,
 			}),
-		}).then((res) => this._checkResponse(res));
-	}
-
-	//проверка ответа, вывод ошибки и  ее статус кода
-	_checkResponse(res) {
-		if (res.ok) {
-			return res.json();
-		}
-		return Promise.reject(
-			`Ошибка : ${res.status}`
-		);
+		}).then(checkResponse)
 	}
 }
 

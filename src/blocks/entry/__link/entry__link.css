@@ -1,11 +1,11 @@
-.entry-form__link {
+.entry__link {
   color: #fff;
   opacity: 1;
   text-decoration: none;
   transition: opacity 0.3s ease-in-out;
 }
 
-.entry-form__link:hover {
+.entry__link:hover {
   opacity: 0.6;
   cursor: pointer;
 }

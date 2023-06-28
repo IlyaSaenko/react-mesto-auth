@@ -52,10 +52,9 @@ export default function AuthForm({
 					onChange={handleChange}
 					className="entry__input"
 				/>
-				<button className="entry__submit button" type="submit"> {textOfButton} </button>
+				<button className="entry__submit" type="submit"> {textOfButton} </button>
 			</form>
 			{children}
-
 		</div>
 	);
 };

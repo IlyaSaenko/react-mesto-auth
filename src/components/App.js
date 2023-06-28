@@ -59,7 +59,7 @@ export default function App() {
           console.log(err);
         });
     }
-  }, []);  //исправить ошибку
+  }, []);
 
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true)

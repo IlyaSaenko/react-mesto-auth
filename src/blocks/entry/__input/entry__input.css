@@ -1,11 +1,11 @@
 .entry__input {
   width: 100%;
   height: 40px;
-  padding: 13px 0;
   margin-bottom: 17px;
   box-sizing: border-box;
-  border-bottom: 2px solid #ccc;
+  padding: 13px 0;
   border: none;
+  border-bottom: 2px solid #ccc;
   outline: none;
   font-family: "Inter";
   font-weight: 500;
