@@ -14,11 +14,11 @@ export default function Register({ handleReg }) {
 			title="Регистрация"
 			textOfButton="Зарегистрироваться"
 			handleSubmit={handleSubmit}
-			pathOfButton="/sign-up"
+			pathOfButton="/signup"
 		>
 			<p className="entry__sign">
 				Уже зарегистрированы? &nbsp;
-				<Link className="entry__link" to="/sign-in">
+				<Link className="entry__link" to="/signin">
 					Войти
 				</Link>
 			</p>

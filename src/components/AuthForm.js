@@ -44,7 +44,7 @@ export default function AuthForm({
 				<input
 					required
 					minLength={6}
-					// type="password"
+					type="password"
 					name="password"
 					id="password-input"
 					placeholder="Пароль"

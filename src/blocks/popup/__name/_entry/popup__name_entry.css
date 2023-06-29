@@ -1,5 +1,5 @@
 .popup__name_entry {
-  max-width: 358px;
+  min-width: 358px;
   margin: 0 auto ;
   text-align: center;
 }

@@ -59,6 +59,7 @@ export default function App() {
           console.log(err);
         });
     }
+    // eslint-disable-next-line
   }, []);
 
   function handleEditAvatarClick() {
@@ -82,6 +83,7 @@ export default function App() {
     setIsEditProfilePopupOpen(false)
     setIsAddPlacePopupOpen(false)
     setSelectedCard(null);
+    setIsTooltipOpen(false);
   }
 
   function handleCardLike(card) {
@@ -111,13 +113,12 @@ export default function App() {
   };
 
   function handleUpdateAvatar(value) {
-
     api.setUserAvatar(value)
       .then((res) => {
         setCurrentUser(res);
         closeAllPopups()
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log("Error update avatar: " + err));
   };
 
   function handleAddPlaceSubmit(value) {
@@ -163,7 +164,7 @@ export default function App() {
     auth
       .register(password, email)
       .then(() => {
-        navigate("/sign-in");
+        navigate("/signin");
       })
       .then(() => {
         setIsSuccesRegister(true);
@@ -182,7 +183,7 @@ export default function App() {
         <Header email={email} loggedIn={loggedIn} isSign={isSign} />
         <Routes>
           <Route
-            path="/sign-up"
+            path="/signup"
             element={
               <Register
                 setIsSuccesRegister={setIsSuccesRegister}
@@ -192,7 +193,7 @@ export default function App() {
             }
           />
           <Route
-            path="/sign-in"
+            path="/signin"
             element={
               <Login
                 setLoggedIn={setLoggedIn}
