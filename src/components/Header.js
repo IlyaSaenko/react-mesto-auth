@@ -11,16 +11,16 @@ export default function Header({ email, loggedIn, isSign }) {
       {loggedIn ? (
         <div className="header__entry">
           <p>{email}</p>
-          <Link className="header__link" to="/sign-in" onClick={isSign}>
+          <Link className="header__link" to="/signin" onClick={isSign}>
             Выйти
           </Link>
         </div>
       ) : (
         <Link
           className="header__button"
-          to={location.pathname === "/sign-in" ? "/sign-up" : "/sign-in"}
+          to={location.pathname === "/signin" ? "/signup" : "/signin"}
         >
-          {location.pathname === "/sign-in" ? "Регистрация" : "Войти"}
+          {location.pathname === "/signin" ? "Регистрация" : "Войти"}
         </Link>
       )}
     </header>
