@@ -1,11 +1,13 @@
 .entry {
-  width: 358px;
-  margin: 40px auto 0;
-  font-family: 'Inter', Arial, sans-serif;
+  width: 100%;
+  margin: 40px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* @media screen and (max-width: 480px) {
+@media screen and (max-width: 480px) {
   .entry {
-    width: 260px;    
+    margin-top: 18px;
   }
-} */
+}

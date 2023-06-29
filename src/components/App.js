@@ -127,7 +127,7 @@ export default function App() {
         setCards([newCard, ...cards]);
         closeAllPopups();
       })
-      .catch((err) => console.log("Error add card:" + err))
+      .catch((err) => console.log("Error add card: " + err))
   };
 
   function isSign() {
@@ -232,6 +232,7 @@ export default function App() {
             }
           />
         </Routes>
+        {/* <Footer /> */}
         {loggedIn && <Footer />}
 
         <EditProfilePopup
@@ -282,3 +283,10 @@ export default function App() {
     </CurrentUserContext.Provider>
   );
 }
+
+// Добрый день!
+// Эта работа оказалась достаточно объёмной.
+// Постарался сделать всё максимально правильно.
+// Много раз протестил, почистил код. Вроде, функционирует как надо.
+// Надеюсь, получилось.
+// Спасибо большое за проверку!

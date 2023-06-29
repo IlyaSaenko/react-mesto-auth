@@ -27,21 +27,22 @@ export default function AuthForm({
 	};
 
 	return (
-		<div className="entry" >
-			<h2 className="entry__title"> {title} </h2>
+		<div className="entry">
+			<h2 className="entry__title">{title}</h2>
 			<form className="entry__form" onSubmit={onSubmit}>
 				<input
+					className="entry__input"
 					required
 					type="email"
 					name="email"
-					minLength={5}
+					minLength={6}
 					id="email-input"
 					placeholder="Email"
 					value={formValue.email}
 					onChange={handleChange}
-					className="entry__input"
 				/>
 				<input
+					className="entry__input"
 					required
 					minLength={6}
 					type="password"
@@ -50,7 +51,6 @@ export default function AuthForm({
 					placeholder="Пароль"
 					value={formValue.password}
 					onChange={handleChange}
-					className="entry__input"
 				/>
 				<button className="entry__submit" type="submit"> {textOfButton} </button>
 			</form>
