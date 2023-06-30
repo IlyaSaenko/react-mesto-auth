@@ -9,3 +9,15 @@
   font-size: 18px;
   line-height: 22px;
 }
+
+@media screen and (max-width: 480px) {
+  .header__entry {
+    width: 100%;
+    margin: 0;
+    padding-top: 15px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    line-height: 10px;
+  }
+} 
