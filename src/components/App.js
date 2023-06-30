@@ -25,20 +25,34 @@ export default function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = useState([]);
   const [email, setEmail] = useState("email");
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [isLoggedIn, setLoggedIn] = useState(false);
   const navigate = useNavigate();
 
   const [isSuccessRegister, setIsSuccesRegister] = useState(false);
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
 
+  // useEffect(() => {
+  //   Promise.all([api.getUserInfo(), api.getInitialCards()])
+  //     .then(([user, card]) => {
+  //       setCurrentUser(user);
+  //       setCards(card);
+  //     })
+  //     .catch((err) => console.log(err))
+  // }, []);
+
   useEffect(() => {
-    Promise.all([api.getUserInfo(), api.getInitialCards()])
-      .then(([user, card]) => {
-        setCurrentUser(user);
-        setCards(card);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+    if (isLoggedIn) {
+      Promise.all([api.getUserInfo(), api.getInitialCards()])
+        .then(([user, card]) => {
+          setCurrentUser(user);
+          setCards(card);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [isLoggedIn]);
+
 
   useEffect(() => {
     if (localStorage.getItem("jwt")) {
@@ -141,6 +155,11 @@ export default function App() {
     setLoggedIn(true);
   }
 
+// Спасибо большое за проверку и подсказки!
+// Исправил некоторые моменты, но вот эта ошибка не даётся никак.
+// Кажется, я не туда смотрю или чего-то не замечаю, все действия усложнённые делаю, но без результата.
+// Если можно, направьте, пожалуйста, в правильную сторону, на что именно обратить внимание, если это критическая ошибка
+
   function handleAuth(password, email) {
     auth
       .authorize(password, email)
@@ -180,7 +199,7 @@ export default function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
-        <Header email={email} loggedIn={loggedIn} isSign={isSign} />
+        <Header email={email} loggedIn={isLoggedIn} isSign={isSign} />
         <Routes>
           <Route
             path="/signup"
@@ -208,7 +227,7 @@ export default function App() {
             element={
               <ProtectedRoute
                 element={Main}
-                loggedIn={loggedIn}
+                loggedIn={isLoggedIn}
                 onEditAvatar={handleEditAvatarClick}
                 onEditProfile={handleEditProfileClick}
                 onAddPlace={handleAddPlaceClick}
@@ -233,7 +252,7 @@ export default function App() {
           />
         </Routes>
         {/* <Footer /> */}
-        {loggedIn && <Footer />}
+        {isLoggedIn && <Footer />}
 
         <EditProfilePopup
           isOpen={isEditProfilePopupOpen}
@@ -283,10 +302,3 @@ export default function App() {
     </CurrentUserContext.Provider>
   );
 }
-
-// Добрый день!
-// Эта работа оказалась достаточно объёмной.
-// Постарался сделать всё максимально правильно.
-// Много раз протестил, почистил код. Вроде, функционирует как надо.
-// Надеюсь, получилось.
-// Спасибо большое за проверку!
