@@ -31,15 +31,6 @@ export default function App() {
   const [isSuccessRegister, setIsSuccesRegister] = useState(false);
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
 
-  // useEffect(() => {
-  //   Promise.all([api.getUserInfo(), api.getInitialCards()])
-  //     .then(([user, card]) => {
-  //       setCurrentUser(user);
-  //       setCards(card);
-  //     })
-  //     .catch((err) => console.log(err))
-  // }, []);
-
   useEffect(() => {
     if (isLoggedIn) {
       Promise.all([api.getUserInfo(), api.getInitialCards()])
@@ -73,7 +64,6 @@ export default function App() {
           console.log(err);
         });
     }
-    // eslint-disable-next-line
   }, []);
 
   function handleEditAvatarClick() {
@@ -154,9 +144,6 @@ export default function App() {
     localStorage.setItem("email", email);
     setLoggedIn(true);
   }
-
- // обновить стэйт забыл...
- // спасибо большое за проверку и подсказки!
 
   function handleAuth(password, email) {
     auth
